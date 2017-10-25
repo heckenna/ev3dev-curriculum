@@ -47,13 +47,14 @@ Authors: David Fisher and Junheng Wang.
 #       make the value for m and b perfect, but that is overkill.  You have permission to set b = 0 and just pick an m
 #       that would roughly fit most of your data.  Put your value for m below and think about if it most fits:
 #
-#       speed_in_inches_per_second = 0.011 * speed_in_degrees_per_second + 0
+#       speed_in_inches_per_second = 0.010 * speed_in_degrees_per_second
 #
 #     Eventually your goal is to make an equation that will allow users to input any distance in inches and any speed in
 #     degrees per second, then output the time needed to drive the correct distance at that speed.  So eventually you
 #     will be making a formula like this...
 #
 #   Time (seconds) = Distance (inches, as input from the user) / Speed (inches/second, as converted based on user input)
+#   Time (seconds) = Distance (inches, as input from the user) / (0.010 * Speed (degrees/second))
 #
 #   Note: To repeat again, in later modules you will learn different (better) ways to travel a given distance using
 #     motor encoders, so just make a simple rough approximation here, since later we'll do it better in a different way.
@@ -84,11 +85,11 @@ def main():
 
     time_s = 1  # Any value other than 0.
     while time_s != 0:
-        left_sp = int(input("Enter a speed for the left motor (0 to 900 dps): "))
-        right_sp = int(input("Enter a speed for the right motor (0 to 900 dps): "))
-        time_s = int(input("Enter a time to drive (seconds): "))
-        left_motor.run_forever(speed_sp=left_sp)
-        right_motor.run_forever(speed_sp=right_sp)
+        sp = int(input("Enter a speed (0 to 900 dps): "))
+        dis = int(input("Enter a distance to travel (inches): "))
+        left_motor.run_forever(speed_sp=sp)
+        right_motor.run_forever(speed_sp=sp)
+        time_s = dis / (0.010 * sp)
         time.sleep(time_s)
         left_motor.stop()
         right_motor.stop(stop_action="brake")
@@ -101,14 +102,14 @@ def main():
 # ----------------------------------------------------------------------
 main()
 
-# TODO: 4. Change the input questions from:
+# DONE: 4. Change the input questions from:
 #   Enter a speed for the left motor (0 to 900 dps):
 #   Enter a speed for the right motor (0 to 900 dps):
 #   Enter a time to drive (seconds):
 # to:
 #   Enter a speed (0 to 900 dps):
 #   Distance to travel (inches):
-# TODO: 5. Write the code necessary to make the robot drive at that speed going roughly that distance.
+# DONE: 5. Write the code necessary to make the robot drive at that speed going roughly that distance.
 #   Note, in this module, you are REQUIRED to use the pattern...
 #      run_forever()
 #      time.sleep(some_amount)
