@@ -92,7 +92,7 @@ def main():
 
         left_motor.run_forever(speed_sp=speed)
         right_motor.run_forever(speed_sp=speed)
-        time_s = dist / (0.010 * speed)
+        time_s = dist / (0.010283 * speed)
         time.sleep(time_s)
         left_motor.stop(stop_action="brake")
         right_motor.stop(stop_action="brake")
