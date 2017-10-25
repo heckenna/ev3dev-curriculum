@@ -96,7 +96,7 @@ def main():
         if dist == 0:
             break
 
-        time_s = dist/(0.010283 * sp)
+        time_s = dist/(0.010283 * spe)
         left_motor.run_forever(speed_sp=left_sp)
         right_motor.run_forever(speed_sp=right_sp)
         time.sleep(time_s)
@@ -121,7 +121,7 @@ def main():
 #   You may NOT use the advanced motor commands at this time like: run_to_abs_pos, run_to_rel_pos, or run_timed.
 # DONE: 6. Modify the program so that it will exit immediately if the answer to   any   question is 0.
 # TODO: 7. Formally test your work. When you think you have the problem complete run these tests to be sure:
-#   200 dps 24 inches (make sure it drives within 6 inches of the target distance)
+#   200 dps 24 inches (make sure it drives within 6 inches of the target distance) 28.75
 #   400 dps 24 inches (make sure it drives within 6 inches of the target distance)
 #   800 dps 24 inches (make sure it drives within 6 inches of the target distance)
 #   400 dps 12 inches (make sure it drives within 3 inches of the target distance)
