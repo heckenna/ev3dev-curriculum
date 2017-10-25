@@ -85,13 +85,13 @@ def main():
 
     time_s = 1  # Any value other than 0.
     while time_s != 0:
-        sp = int(input("Enter a speed (0 to 900 dps): "))
-        dis = int(input("Enter a distance to travel (inches): "))
-        left_motor.run_forever(speed_sp=sp)
-        right_motor.run_forever(speed_sp=sp)
-        time_s = dis / (0.010 * sp)
+        speed = int(input("Enter a speed (0 to 900 dps): "))
+        dist = int(input("Enter a distance to travel (inches): "))
+        left_motor.run_forever(speed_sp=speed)
+        right_motor.run_forever(speed_sp=speed)
+        time_s = dist / (0.010 * speed)
         time.sleep(time_s)
-        left_motor.stop()
+        left_motor.stop(stop_action="brake")
         right_motor.stop(stop_action="brake")
 
     print("Goodbye!")
