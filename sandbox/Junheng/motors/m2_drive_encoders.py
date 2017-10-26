@@ -31,11 +31,12 @@ def main():
     while time_s != 0:
         dist = int(input("Enter a distance to travel (inches): "))
         if dist == 0: break
+        pos = dist * 90
         speed = int(input("Enter a speed to travel (degree/second): "))
         if speed == 0: break
 
-        left_motor.run_to_rel_pos(position_sp=dist, speed_sp=speed)
-        right_motor.run_to_rel_pos(position_sp=dist, speed_sp=speed)
+        left_motor.run_to_rel_pos(position_sp=pos, speed_sp=speed)
+        right_motor.run_to_rel_pos(position_sp=pos, speed_sp=speed)
         left_motor.wait_while(ev3.Motor.STATE_RUNNING)
         right_motor.wait_while(ev3.Motor.STATE_RUNNING)
         ev3.Sound.beep().wait()
