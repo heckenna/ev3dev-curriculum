@@ -63,7 +63,7 @@ main()
 #     Use the run_to_rel_pos, .wait_while(ev3.Motor.STATE_RUNNING) pattern to implement your work (not timed driving)
 #   You will have to experimentally determine the formula for accurate position_sp turn amounts.
 
-# TODO: 4. Individually implement the code here to use your turn_degrees library method.
+# DONE: 4. Individually implement the code here to use your turn_degrees library method.
 #   Modify the code to ask the user how many degrees they would like to turn
 #   Ask the user what speed they would like to use for the turn (0 to 900 degrees per second).
 #   Beep after the turn is complete via a beep in this module (tests to make sure the library is blocking)
