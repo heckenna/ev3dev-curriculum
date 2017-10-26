@@ -15,7 +15,6 @@ import ev3dev.ev3 as ev3
 import math
 import time
 
-
 class Snatch3r(object):
     """Commands for the Snatch3r robot that might be useful in many different programs."""
     
