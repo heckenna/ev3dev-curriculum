@@ -30,10 +30,10 @@ def main():
     robot = robo.Snatch3r()
 
     while True:
-        degrees_to_turn = int(input("Speed (0 to 900 dps): "))
+        degrees_to_turn = int(input("Degree to turn: "))
         if degrees_to_turn == 0:
             break
-        turn_speed_sp = int(input("Distance (inches): "))
+        turn_speed_sp = int(input("Speed to turn: "))
         if turn_speed_sp == 0:
             break
 
