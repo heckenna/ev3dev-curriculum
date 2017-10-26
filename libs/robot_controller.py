@@ -30,9 +30,8 @@ class Snatch3r(object):
         assert self.left_motor.connected
         assert self.right_motor.connected
 
-        time_s = 1  # Any value other than 0.
-        while time_s != 0:
-            self.right_motor.run_to_rel_pos(position_sp = inches_target, speed_sp = speed_deg_per_second)
-            self.left_motor.run_to_rel_pos(position_sp = inches_target, speed_sp = speed_deg_per_second)
-            self.right_motor.wait_while(ev3.Motor.STATE_RUNNING)
-            self.left_motor.wait_while(ev3.Motor.STATE_RUNNING)
+
+        self.right_motor.run_to_rel_pos(position_sp = inches_target * 90, speed_sp = speed_deg_per_second)
+        self.left_motor.run_to_rel_pos(position_sp = inches_target * 90, speed_sp = speed_deg_per_second)
+        self.right_motor.wait_while(ev3.Motor.STATE_RUNNING)
+        self.left_motor.wait_while(ev3.Motor.STATE_RUNNING)
