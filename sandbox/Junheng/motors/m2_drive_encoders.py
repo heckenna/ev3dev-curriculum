@@ -29,17 +29,15 @@ def main():
 
     time_s = 1  # Any value other than 0.
     while time_s != 0:
-        speed = int(input("Enter a speed (0 to 900 dps): "))
-        if speed == 0: break
         dist = int(input("Enter a distance to travel (inches): "))
         if dist == 0: break
+        speed = int(input("Enter a speed to travel (inches/second): "))
+        if speed == 0: break
 
-        left_motor.run_forever(speed_sp=speed)
-        right_motor.run_forever(speed_sp=speed)
-        time_s = dist / (0.010283 * speed)
-        time.sleep(time_s)
-        left_motor.stop(stop_action="brake")
-        right_motor.stop(stop_action="brake")
+        left_motor.run_to_rel_pos(dist, speed)
+        right_motor.run__to_rel_pos(dist, speed)
+        left_motor.wait_while(ev3.Motor.STATE_RUNNING)
+        right_motor.wait_while(ev3.Motor.STATE_RUNNING)
         ev3.Sound.beep().wait()
 
     print("Goodbye!")
