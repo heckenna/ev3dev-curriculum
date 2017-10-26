@@ -36,4 +36,3 @@ class Snatch3r(object):
             self.left_motor.run_to_rel_pos(position_sp = inches_target, speed_sp = speed_deg_per_second)
             self.right_motor.wait_while(ev3.Motor.STATE_RUNNING)
             self.left_motor.wait_while(ev3.Motor.STATE_RUNNING)
-            ev3.Sound.beep().wait()
