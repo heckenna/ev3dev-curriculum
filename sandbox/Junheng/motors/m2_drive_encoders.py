@@ -34,8 +34,8 @@ def main():
         speed = int(input("Enter a speed to travel (inches/second): "))
         if speed == 0: break
 
-        left_motor.run_to_rel_pos(dist, speed)
-        right_motor.run__to_rel_pos(dist, speed)
+        left_motor.run_to_rel_pos(position_sp=dist, speed_sp=speed)
+        right_motor.run__to_rel_pos(position_sp=dist, speed_sp=speed)
         left_motor.wait_while(ev3.Motor.STATE_RUNNING)
         right_motor.wait_while(ev3.Motor.STATE_RUNNING)
         ev3.Sound.beep().wait()
