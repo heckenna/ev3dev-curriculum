@@ -19,8 +19,9 @@ import time
 class Snatch3r(object):
     """Commands for the Snatch3r robot that might be useful in many different programs."""
     
-    # TODO: Implement the Snatch3r class as needed when working the sandbox exercises
+    # DONE: Implement the Snatch3r class as needed when working the sandbox exercises
     # (and delete these comments)
+
     self.left_motor = ev3.LargeMotor(ev3.OUTPUT_B)
     self.right_motor = ev3.LargeMotor(ev3.OUTPUT_C)
 
