@@ -20,12 +20,12 @@ class Snatch3r(object):
     
     # DONE: Implement the Snatch3r class as needed when working the sandbox exercises
     # (and delete these comments)
-
-    def drive_inches(self, inches_target, speed_deg_per_second):
-
+    def __init__(self):
         self.left_motor = ev3.LargeMotor(ev3.OUTPUT_B)
         self.right_motor = ev3.LargeMotor(ev3.OUTPUT_C)
 
+
+    def drive_inches(self, inches_target, speed_deg_per_second):
         # Check that the motors are actually connected
         assert self.left_motor.connected
         assert self.right_motor.connected
@@ -36,10 +36,6 @@ class Snatch3r(object):
         self.left_motor.wait_while(ev3.Motor.STATE_RUNNING)
 
     def turn_degrees(self, degrees_to_turn, turn_speed_sp):
-
-        self.left_motor = ev3.LargeMotor(ev3.OUTPUT_B)
-        self.right_motor = ev3.LargeMotor(ev3.OUTPUT_C)
-
         # Check that the motors are actually connected
         assert self.left_motor.connected
         assert self.right_motor.connected
