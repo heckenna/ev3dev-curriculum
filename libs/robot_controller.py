@@ -24,7 +24,6 @@ class Snatch3r(object):
         self.left_motor = ev3.LargeMotor(ev3.OUTPUT_B)
         self.right_motor = ev3.LargeMotor(ev3.OUTPUT_C)
 
-
     def drive_inches(self, inches_target, speed_deg_per_second):
         # Check that the motors are actually connected
         assert self.left_motor.connected
