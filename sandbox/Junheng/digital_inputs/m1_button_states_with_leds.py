@@ -91,6 +91,7 @@ def main():
         #     with a while loop that blocks code execution until the down instance variable is False.
         #     Use a time.sleep(0.01) inside the while loop to do nothing but wait for the button to be released.
         elif btn.down:
+            print('down')
             ev3.Leds.set_color(ev3.Leds.LEFT, led_colors[current_color_index])
             ev3.Leds.set_color(ev3.Leds.RIGHT, led_colors[current_color_index])
             current_color_index = (current_color_index + 1) % 4
@@ -109,7 +110,7 @@ def main():
         #   Press Down - Both LEDs are Red (the cycle repeats)
         #   Press Back - Both LEDs turn Green, the robot says Goodbye and the program exits
 
-        # TODO: 6. Call over a TA or instructor to sign your team's checkoff sheet and do a code review.
+        # DONE: 6. Call over a TA or instructor to sign your team's checkoff sheet and do a code review.
         #
         # Observation you should make, working with buttons as 'states' is functional but usually 'events' work better.
         # Also observe that we don't use the Enter button.  Enter can cause issues since your program is running at the
@@ -124,7 +125,6 @@ def main():
     ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.GREEN)
     ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.GREEN)
     ev3.Sound.speak("Goodbye").wait()
-
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
