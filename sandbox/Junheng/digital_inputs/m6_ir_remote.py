@@ -107,10 +107,21 @@ def main():
 #
 # Observations you should make, IR buttons are a fun way to control the robot.
 
-def left_motor_button(button_state, robot):
+def left_motor_forward_button(button_state, robot):
     if button_state:
-        robot.left_motor
+        robot.left_motor_forward()
 
+def left_motor_backward_button(button_state, robot):
+    if button_state:
+        robot.left_motor_forward()
+
+def left_motor_forward_button(button_state, robot):
+    if button_state:
+        robot.left_motor_forward()
+
+def left_motor_backward_button(button_state, robot):
+    if button_state:
+        robot.left_motor_forward()
 
 def handle_arm_up_button(button_state, robot):
     """
