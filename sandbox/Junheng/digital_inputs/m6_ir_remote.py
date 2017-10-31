@@ -113,15 +113,15 @@ def left_motor_forward_button(button_state, robot):
 
 def left_motor_backward_button(button_state, robot):
     if button_state:
-        robot.left_motor_forward()
+        robot.left_motor_backward()
 
-def left_motor_forward_button(button_state, robot):
+def right_motor_forward_button(button_state, robot):
     if button_state:
-        robot.left_motor_forward()
+        robot.right_motor_forward()
 
-def left_motor_backward_button(button_state, robot):
+def right_motor_backward_button(button_state, robot):
     if button_state:
-        robot.left_motor_forward()
+        robot.right_motor_backward()
 
 def handle_arm_up_button(button_state, robot):
     """
