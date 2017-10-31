@@ -106,6 +106,3 @@ class Snatch3r(object):
         assert  self.right_motor.connected
         self.right_motor.run_forever(speed_sp=-600)
         ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.RED)
-        if not button_state:
-            self.right_motor.stop()
-            ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.BLACK)
