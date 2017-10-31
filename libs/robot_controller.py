@@ -86,20 +86,3 @@ class Snatch3r(object):
         self.arm_motor.run_to_abs_pos(position_sp=0)
         self.arm_motor.wait_while(ev3.Motor.STATE_RUNNING)
         ev3.Sound.beep()
-
-    def drive(self):
-        assert self.rc1.connected
-        assert self.rc1.connected
-
-        if self.rc1.on_red_up:
-            ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.GREEN)
-            self.left_motor.run_forever(speed_sp=600)
-        if self.rc1.on_red_down:
-            ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.RED)
-            self.left_motor.run_forever(speed_sp=-600)
-        if self.rc1.on_blue_up:
-            ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.GREEN)
-            self.right_motor.run_forever(speed_sp=600)
-        if self.rc1.on_blue_down:
-            ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.RED)
-            self.right_motor.run_forever(speed_sp=-600)

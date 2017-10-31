@@ -61,6 +61,20 @@ def main():
     # TODO: 4. Add the necessary IR handler callbacks as per the instructions above.
     # Remote control channel 1 is for driving the crawler tracks around (none of these functions exist yet below).
     # Remote control channel 2 is for moving the arm up and down (all of these functions already exist below).
+    rc1 = ev3.RemoteControl(channel=1)
+    rc2 = ev3.RemoteControl(channel=2)
+    assert rc1.connected
+    assert rc1.connected
+
+    rc1.on_red_up = lambda state: handle_arm_up_button(state, robot)
+    rc1.on_red_down = lambda state: handle_arm_down_button(state, robot)
+    rc1.on_blue_up = lambda state: handle_calibrate_button(state, robot)
+    rc1.on_blue_down = lambda state: handle_calibrate_button(state, robot)
+
+    rc2.on_red_up = lambda state: handle_arm_up_button(state, robot)
+    rc2.on_red_down = lambda state: handle_arm_down_button(state, robot)
+    rc2.on_blue_up = lambda state: handle_calibrate_button(state, robot)
+
 
     # For our standard shutdown button.
     btn = ev3.Button()
@@ -69,8 +83,10 @@ def main():
     robot.arm_calibration()  # Start with an arm calibration in this program.
 
     while dc.running:
-        # TODO: 5. Process the RemoteControl objects.
+        # DONE: 5. Process the RemoteControl objects.
         btn.process()
+        rc1.process()
+        rc2.process()
         time.sleep(0.01)
 
     # DONE: 2. Have everyone talk about this problem together then pick one  member to modify libs/robot_controller.py
