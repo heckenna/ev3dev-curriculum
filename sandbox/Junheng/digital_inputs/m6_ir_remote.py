@@ -110,18 +110,30 @@ def main():
 def left_motor_forward_button(button_state, robot):
     if button_state:
         robot.left_motor_forward()
+    else:
+        robot.left_motor.stop()
+        ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.BLACK)
 
 def left_motor_backward_button(button_state, robot):
     if button_state:
         robot.left_motor_backward()
+    else:
+        robot.left_motor.stop()
+        ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.BLACK)
 
 def right_motor_forward_button(button_state, robot):
     if button_state:
         robot.right_motor_forward()
+    else:
+        robot.right_motor.stop()
+        ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.BLACK)
 
 def right_motor_backward_button(button_state, robot):
     if button_state:
         robot.right_motor_backward()
+    else:
+        robot.right_motor.stop()
+        ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.BLACK)
 
 def handle_arm_up_button(button_state, robot):
     """
