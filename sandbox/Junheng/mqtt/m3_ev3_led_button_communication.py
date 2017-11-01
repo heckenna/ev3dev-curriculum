@@ -73,6 +73,8 @@ class MyDelegate(object):
         self.running = True
 
     def set_led(self, led_side_string, led_color_string):
+        print("Received: {} {}".format(led_side_string,
+                                       led_color_string))
 
         led_side = None
         if led_side_string == "left":
@@ -90,8 +92,8 @@ class MyDelegate(object):
 
         if led_side is None or led_color is None:
             print("Invalid parameters sent to set_led. "
-                  "led_side_string = {} led_color_string = {}".format(
-                led_side_string, led_color_string))
+                  "led_side_string = {} led_color_string = {}".format
+                  (led_side_string, led_color_string))
         else:
             ev3.Leds.set_color(led_side, led_color)
 
@@ -103,11 +105,16 @@ def main():
     print("--------------------------------------------")
     ev3.Sound.speak("LED Button communication").wait()
 
-    # TODO: 3. Create an instance of your delegate class and an MQTT client, passing in the delegate object.
+    # DONE: 3. Create an instance of your delegate class and an MQTT client, passing in the delegate object.
     # Note: you can determine the variable names that you should use by looking at the errors underlined in later code.
     # Once you have that done connect the mqtt_client to the MQTT broker using the connect_to_pc method.
     # Note: on EV3 you call connect_to_pc, but in the PC code it will call connect_to_ev3
 
+    my_delegate = MyDelegate()
+    mqtt_client = com.MqttClient(my_delegate)
+    my_delegate.mqtt_client = mqtt_client
+    mqtt_client.connect_to_pc()
+    my_delegate.loop_forever()
 
 
     # Buttons on EV3 (these obviously assume TO DO: 3. is done)
