@@ -41,7 +41,7 @@ def main():
     # DONE: 4. Create a my_delegate object from your MyDelegate class
     # Create an mqtt_client object from the com.MqttClient class passing in my_delegate
     # connect_to_ev3
-    my_delegate = MyDelegate
+    my_delegate = MyDelegate()
     mqtt_client = com.MqttClient(my_delegate)
     mqtt_client.connect_to_ev3()
 
