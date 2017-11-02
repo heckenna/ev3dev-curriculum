@@ -29,6 +29,8 @@ class Snatch3r(object):
         self.rc2 = ev3.RemoteControl(channel=2)
         self.rc3 = ev3.RemoteControl(channel=3)
         self.rc4 = ev3.RemoteControl(channel=4)
+        self.color_sensor = ev3.ColorSensor()
+
 
     def loop_forever(self):
         self.running = True
