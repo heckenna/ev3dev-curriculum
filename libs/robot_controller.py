@@ -140,8 +140,8 @@ class Snatch3r(object):
         assert self.left_motor.connected
         assert self.right_motor.connected
 
-        self.right_motor.stop()
-        self.left_motor.stop()
+        self.right_motor.stop(stop_action = 'brake')
+        self.left_motor.stop(stop_acton = 'brake')
 
 
     def left_motor_forward(self):

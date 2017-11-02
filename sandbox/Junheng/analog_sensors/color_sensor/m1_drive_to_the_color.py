@@ -96,14 +96,14 @@ def drive_to_color(button_state, robot, color_to_seek):
         # Then here you can use a command like robot.color_sensor.color to check the value
 
         while True:
-            robot.left_motor.run_forever()
-            robot.right_motor.run_forever()
+            robot.left_motor.run_forever(speed_sp = 300)
+            robot.right_motor.run_forever(speed_sp = 300)
             time.sleep(0.01)
             if robot.color_sensor.color == color_to_seek:
                 robot.drive_stop()
                 break
 
-        # TODO: 4. Call over a TA or instructor to sign your team's checkoff sheet.
+        # DONE: 4. Call over a TA or instructor to sign your team's checkoff sheet.
         #
         # Observations you should make, the instance variable robot.color_sensor.color is always updating
         # to the color seen and that value is given to you as an int.
