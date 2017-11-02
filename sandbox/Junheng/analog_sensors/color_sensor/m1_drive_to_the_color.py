@@ -98,9 +98,10 @@ def drive_to_color(button_state, robot, color_to_seek):
         while True:
             robot.left_motor.run_forever()
             robot.right_motor.run_forever()
-            time.sleep(0.001)
+            time.sleep(0.01)
             if robot.color_sensor.color == color_to_seek:
                 robot.drive_stop()
+                break
 
         # TODO: 4. Call over a TA or instructor to sign your team's checkoff sheet.
         #
