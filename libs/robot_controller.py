@@ -30,6 +30,13 @@ class Snatch3r(object):
         self.rc3 = ev3.RemoteControl(channel=3)
         self.rc4 = ev3.RemoteControl(channel=4)
 
+    def loop_forever(self):
+        self.running = True
+        while self.running:
+            time.sleep(0.01)
+
+    def shutdown(self):
+        self.running = False
 
     def drive_inches(self, inches_target, speed_deg_per_second):
         # Check that the motors are actually connected
