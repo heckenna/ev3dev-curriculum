@@ -94,7 +94,45 @@ class Snatch3r(object):
         self.arm_motor.wait_while(ev3.Motor.STATE_RUNNING)
         ev3.Sound.beep()
 
-    def left_motor_forward(self):
+    def drive_forward(self, left_sp, right_sp):
+        assert self.left_motor.connected
+        assert self.right_motor.connected
+
+        self.right_motor.run_forever(speed_sp=right_sp)
+        self.left_motor.run_forever(speed_sp = left_sp)
+
+    def drive_left(self, left_sp, right_sp):
+        assert self.left_motor.connected
+        assert self.right_motor.connected
+
+        self.right_motor.run_forever(speed_sp=right_sp)
+        self.left_motor.run_forever(speed_sp=-left_sp)
+
+    def drive_right(self, left_sp, right_sp):
+        assert self.left_motor.connected
+        assert self.right_motor.connected
+
+        self.right_motor.run_forever(speed_sp=-right_sp)
+        self.left_motor.run_forever(speed_sp=left_sp)
+
+    def drive_backward(self, left_sp, right_sp):
+        assert self.left_motor.connected
+        assert self.right_motor.connected
+
+        self.right_motor.run_forever(speed_sp=-right_sp)
+        self.left_motor.run_forever(speed_sp=-left_sp)
+
+    def drive_stop(self):
+        assert self.left_motor.connected
+        assert self.right_motor.connected
+
+        self.right_motor.stop()
+        self.left_motor.stop()
+
+
+
+
+    """def left_motor_forward(self):
         assert  self.left_motor.connected
         self.left_motor.run_forever(speed_sp=600)
         ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.GREEN)
@@ -112,4 +150,4 @@ class Snatch3r(object):
     def right_motor_backward(self):
         assert  self.right_motor.connected
         self.right_motor.run_forever(speed_sp=-600)
-        ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.RED)
+        ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.RED)"""
