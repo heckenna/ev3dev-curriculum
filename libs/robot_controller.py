@@ -142,7 +142,7 @@ class Snatch3r(object):
         self.left_motor.stop()
 
 
-    """def left_motor_forward(self):
+    def left_motor_forward(self):
         assert  self.left_motor.connected
         self.left_motor.run_forever(speed_sp=600)
         ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.GREEN)
@@ -160,4 +160,4 @@ class Snatch3r(object):
     def right_motor_backward(self):
         assert  self.right_motor.connected
         self.right_motor.run_forever(speed_sp=-600)
-        ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.RED)"""
+        ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.RED)
