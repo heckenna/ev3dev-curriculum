@@ -85,7 +85,6 @@ def main():
     right_button['command'] = lambda: send_right(mqtt_client, left_speed_entry, right_speed_entry)
     root.bind('<Right>', lambda event: send_right(mqtt_client, left_speed_entry, right_speed_entry))
 
-
     back_button = ttk.Button(main_frame, text="Back")
     back_button.grid(row=4, column=1)
     # back_button and '<Down>' key
@@ -119,7 +118,7 @@ def main():
 # ----------------------------------------------------------------------
 # DONE: 4. Implement the functions for the drive button callbacks.
 
-# TODO: 5. Call over a TA or instructor to sign your team's checkoff sheet and do a code review.  This is the final one!
+# DONE: 5. Call over a TA or instructor to sign your team's checkoff sheet and do a code review.  This is the final one!
 #
 # Observations you should make, you did basically this same program using the IR Remote, but your computer can be a
 # remote control that can do A LOT more than an IR Remote.  We are just doing the basics here.
@@ -154,6 +153,7 @@ def send_left(mqtt_client, left_speed_entry, right_speed_entry):
 def send_right(mqtt_client, left_speed_entry, right_speed_entry):
     print('go_right')
     mqtt_client.send_message('drive_right', [left_speed_entry.get(), right_speed_entry.get()])
+
 
 def send_stop(mqtt_client):
     print('stop')
