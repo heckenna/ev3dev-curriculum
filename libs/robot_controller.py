@@ -142,8 +142,6 @@ class Snatch3r(object):
         self.left_motor.stop()
 
 
-
-
     """def left_motor_forward(self):
         assert  self.left_motor.connected
         self.left_motor.run_forever(speed_sp=600)
