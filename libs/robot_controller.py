@@ -34,6 +34,8 @@ class Snatch3r(object):
 
 
     def seek_beacon(self):
+        assert self.ir_sensor
+        beacon_seeker = ev3.BeaconSeeker(channel=1)
         while True:
             current_heading = self.ir_sensor.beacon_seeker.heading
             current_distance = self.ir_sensor.beacon_seeker.distance
@@ -47,7 +49,7 @@ class Snatch3r(object):
                         self.drive_stop()
                         print("Beacon found!")
                         return True
-                    self.drive_forward(300, 300) 
+                    self.drive_forward(300, 300)
                 elif math.fabs(current_heading) >= 10:
                     self.drive_stop()
                     print("Heading is too far off to fix: ", current_heading)
