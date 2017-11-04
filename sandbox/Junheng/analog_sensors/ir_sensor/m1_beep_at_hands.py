@@ -44,8 +44,8 @@ def main():
             if robot.touch_sensor.is_pressed == 1:
                 robot.drive_stop()
                 break
-        time.sleep(0.1)
-        print('The proximity value is ', robot.ir_sensor.proximity)
+            time.sleep(0.1)
+            print('The proximity value is ', robot.ir_sensor.proximity)
 
     # DONE: 3. Call over a TA or instructor to sign your team's checkoff sheet.
     #
