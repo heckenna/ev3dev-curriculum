@@ -48,7 +48,7 @@ class Snatch3r(object):
                     if current_distance == 0:
                         self.drive_stop()
                         print("Beacon found!")
-                        return True
+                        break
                     self.drive_forward(300, 300)
                 elif math.fabs(current_heading) >= 10:
                     self.drive_stop()
