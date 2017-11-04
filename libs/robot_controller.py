@@ -33,7 +33,6 @@ class Snatch3r(object):
         self.ir_sensor = ev3.InfraredSensor()
 
 
-
     def loop_forever(self):
         self.running = True
         while self.running:
