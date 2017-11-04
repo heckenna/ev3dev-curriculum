@@ -47,7 +47,7 @@ class Snatch3r(object):
                         self.drive_stop()
                         print("Beacon found!")
                         return True
-                    self.drive_forward(300, 300)
+                    self.drive_forward(300, 300) 
                 elif math.fabs(current_heading) >= 10:
                     self.drive_stop()
                     print("Heading is too far off to fix: ", current_heading)
