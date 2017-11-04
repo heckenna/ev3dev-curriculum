@@ -90,11 +90,11 @@ def seek_beacon(robot):
             #    print("Heading is too far off to fix: ", current_heading)
 
             # Here is some code to help get you started
-            if math.fabs(current_heading) == 0:
+            if math.fabs(current_heading) < 2:
                 # Close enough of a heading to move forward
                 print("On the right heading. Distance: ", current_distance)
                 # You add more!
-                if current_distance <= 1:
+                if current_distance == 1:
                     robot.drive_stop()
                     print('You have found the beacon!')
                     return True
@@ -108,7 +108,7 @@ def seek_beacon(robot):
             else:
                 print('Heading too far off.')
 
-        time.sleep(0.01)
+        time.sleep(0.1)
 
     # The touch_sensor was pressed to abort the attempt if this code runs.
     print("Abandon ship!")
