@@ -41,10 +41,12 @@ def main():
                 robot.drive_stop()
                 ev3.Sound.beep()
                 time.sleep(1.5)
+            if robot.touch_sensor.is_pressed == 1:
+                break
             time.sleep(0.1)
             print('The proximity value is ', robot.ir_sensor.proximity)
 
-    # TODO: 3. Call over a TA or instructor to sign your team's checkoff sheet.
+    # DONE: 3. Call over a TA or instructor to sign your team's checkoff sheet.
     #
     # Observations you should make, the instance variable robot.ir_sensor.proximity is always updating with a distance.
 
