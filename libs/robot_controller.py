@@ -33,6 +33,31 @@ class Snatch3r(object):
         self.ir_sensor = ev3.InfraredSensor()
 
 
+    def seek_beacon(self):
+        while True:
+            current_heading = self.ir_sensor.beacon_seeker.heading
+            current_distance = self.ir_sensor.beacon_seeker.distance
+            if current_distance == -128:
+                print("IR Remote not found. Distance is -128")
+                self.drive_stop()
+            else:
+                if math.fabs(current_heading) < 2:
+                    print("On the right heading. Distance: ", current_distance)
+                    if current_distance == 0:
+                        self.drive_stop()
+                        print("Beacon found!")
+                        return True
+                    self.drive_forward(300, 300)
+                elif math.fabs(current_heading) >= 10:
+                    self.drive_stop()
+                    print("Heading is too far off to fix: ", current_heading)
+                else:
+                    print("Adjusting heading: ", current_heading)
+                    if current_heading < 0:
+                        self.drive_forward(-100, 100)
+                    else:
+                        self.drive_forward(100, -100)
+                time.sleep(0.01)
 
     def loop_forever(self):
         self.running = True
