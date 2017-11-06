@@ -9,5 +9,4 @@ from tkinter import ttk
 
 def test():
     robot = robo.Snatch3r()
-    left_motor = ev3.LargeMotor(ev3.OUTPUT_B)
-    right_motor = ev3.LargeMotor(ev3.OUTPUT_C)
+
