@@ -41,6 +41,7 @@ def main():
 
         if robot.pixy.value(3) > 0:
             ev3.Sound.beep()
+            time.sleep(1)
 
         time.sleep(0.1)
 
