@@ -19,8 +19,6 @@ def main():
             if found_beacon:
                 ev3.Sound.speak("I got the beacon")
                 robot.arm_up()
-                time.sleep(1)
-                robot.arm_down()
             command = input("Press 'N' to continue: ")
             if command == "n":
                 print("Beacon picked up")
