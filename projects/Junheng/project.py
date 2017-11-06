@@ -23,12 +23,11 @@ def main():
                 robot.arm_down()
             command = input("Press 'N' to continue: ")
             if command == "n":
+                print("Beacon picked up")
                 break
     except:
         traceback.print_exc()
         ev3.Sound.speak("Error")
-    print("Goodbye!")
-    ev3.Sound.speak("Goodbye").wait()
 
 
 main()
