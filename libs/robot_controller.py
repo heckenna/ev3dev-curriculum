@@ -46,7 +46,7 @@ class Snatch3r(object):
             current_distance = beacon_seeker.distance
             if current_distance == -128:
                 print("IR Remote not found. Distance is -128")
-                self.drive_stop()
+                self.drive_forward(-100, 100)
             else:
                 if math.fabs(current_heading) < 2:
                     print("On the right heading. Distance: ", current_distance)
@@ -56,12 +56,9 @@ class Snatch3r(object):
                         print("Beacon found!")
                         return True
                     self.drive_forward(300, 300)
-                elif math.fabs(current_heading) >= 10:
-                    self.drive_stop()
-                    print("Heading is too far off to fix: ", current_heading)
                 else:
                     print("Adjusting heading: ", current_heading)
-                    if current_heading < 1:
+                    if current_heading < 0:
                         self.drive_forward(-100, 100)
                     else:
                         self.drive_forward(100, -100)
