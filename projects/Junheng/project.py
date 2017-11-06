@@ -28,5 +28,7 @@ def main():
         ev3.Sound.speak("Error")
         exit()
 
+    project_ev3
+
 
 main()
