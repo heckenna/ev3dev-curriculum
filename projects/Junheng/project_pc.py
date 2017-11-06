@@ -114,4 +114,3 @@ def quit_program(mqtt_client, shutdown_ev3):
 
 
 main()
-
