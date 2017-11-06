@@ -93,7 +93,8 @@ def seek_beacon(robot):
                 # Close enough of a heading to move forward
                 print("On the right heading. Distance: ", current_distance)
                 # You add more!
-                if current_distance == 1:
+                if current_distance <= 1:
+                    time.sleep(1)
                     robot.drive_stop()
                     print("Beacon found!")
                     return True
