@@ -26,6 +26,7 @@ def main():
     except:
         traceback.print_exc()
         ev3.Sound.speak("Error")
+        exit()
 
 
 main()
