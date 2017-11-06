@@ -17,18 +17,16 @@ def main():
         while True:
             found_beacon = robot.seek_beacon()
             if found_beacon:
+                print("Beacon picked up")
                 ev3.Sound.speak("I got the beacon")
                 robot.arm_up()
             command = input("Press 'N' to continue: ")
             if command == "n":
-                print("Beacon picked up")
                 break
     except:
         traceback.print_exc()
         ev3.Sound.speak("Error")
         exit()
-
-    project_ev3
 
 
 main()
