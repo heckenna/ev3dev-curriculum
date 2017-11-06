@@ -60,7 +60,7 @@ class Snatch3r(object):
                         self.drive_forward(-100, 100)
                     else:
                         self.drive_forward(100, -100)
-                time.sleep(0.01)
+            time.sleep(0.1)
 
     def loop_forever(self):
         self.running = True
