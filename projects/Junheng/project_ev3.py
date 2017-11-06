@@ -28,7 +28,7 @@ def main():
 
     rc1.process()
     rc2.process()
-    time.sleep(0.01)
+    time.sleep(0.1)
 
 def left_motor_forward_button(button_state, robot):
     if button_state:
