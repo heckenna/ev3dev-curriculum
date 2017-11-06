@@ -14,4 +14,9 @@ def main():
     mqtt_client.connect_to_pc()
     robot.loop_forever()
 
+    rc1 = ev3.RemoteControl(channel=1)
+    rc2 = ev3.RemoteControl(channel=2)
+    assert rc1.connected
+    assert rc2.connected
+
 main()

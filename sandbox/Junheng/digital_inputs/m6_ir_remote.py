@@ -64,7 +64,7 @@ def main():
     rc1 = ev3.RemoteControl(channel=1)
     rc2 = ev3.RemoteControl(channel=2)
     assert rc1.connected
-    assert rc1.connected
+    assert rc2.connected
 
     rc1.on_red_up = lambda state: left_motor_forward_button(state, robot)
     rc1.on_red_down = lambda state: left_motor_backward_button(state, robot)
