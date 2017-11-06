@@ -32,6 +32,7 @@ class Snatch3r(object):
         self.color_sensor = ev3.ColorSensor()
         self.ir_sensor = ev3.InfraredSensor()
         self.pixy = ev3.Sensor(driver_name="pixt-lego")
+        assert ev3.Sensor(driver_name="pixt-lego")
 
 
     def seek_beacon(self):
