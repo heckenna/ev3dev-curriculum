@@ -31,6 +31,7 @@ class Snatch3r(object):
         self.rc4 = ev3.RemoteControl(channel=4)
         self.color_sensor = ev3.ColorSensor()
         self.ir_sensor = ev3.InfraredSensor()
+        self.pixy = ev3.Sensor(driver_name="pixt-lego")
 
 
     def seek_beacon(self):
@@ -48,7 +49,7 @@ class Snatch3r(object):
                     if current_distance == 0:
                         self.drive_stop()
                         print("Beacon found!")
-                        break
+                        return True
                     self.drive_forward(300, 300)
                 elif math.fabs(current_heading) >= 10:
                     self.drive_stop()
