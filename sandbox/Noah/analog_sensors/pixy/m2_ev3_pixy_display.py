@@ -31,15 +31,20 @@ def main():
 
     while not robot.touch_sensor.is_pressed:
 
-        # TODO: 3. Read the Pixy values for x, y, width, and height
+        # DONE: 3. Read the Pixy values for x, y, width, and height
         # Print the values (much like the print_pixy_readings example)
-        print("value1: X", robot.pixy.value(1))
-        print("value2: Y", robot.pixy.value(2))
-        print("value3: Width", robot.pixy.value(3))
-        print("value4: Height", robot.pixy.value(4))
+        x_coord = robot.pixy.value(1)
+        y_coord = robot.pixy.value(2)
+        width = robot.pixy.value(3)
+        height = robot.pixy.value(4)
+        print("value1: X", x_coord)
+        print("value2: Y", y_coord)
+        print("value3: Width", width)
+        print("value4: Height", height)
 
-        # TODO: 4. Send the Pixy values to the PC by calling the on_rectangle_update method
+        # DONE: 4. Send the Pixy values to the PC by calling the on_rectangle_update method
         # If you open m2_pc_pixy_display you can see the parameters for that method [x, y, width, height]
+        mqtt_client.send_message('on_rectangle_update' [x_coord, y_coord, width, height])
 
 
 
