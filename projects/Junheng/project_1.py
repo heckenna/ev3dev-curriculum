@@ -12,9 +12,9 @@ def main():
         while True:
             found_beacon = robot.seek_beacon()
             if found_beacon:
+                robot.arm_up()
                 print("Beacon picked up")
                 ev3.Sound.speak("I got the beacon")
-                robot.arm_up()
             command = input("Press 'N' to continue: ")
             if command == "n":
                 break
