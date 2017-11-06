@@ -33,6 +33,7 @@ class Snatch3r(object):
         self.ir_sensor = ev3.InfraredSensor()
         self.pixy = ev3.Sensor(driver_name="pixt-lego")
 
+        assert ev3.ColorSensor()
         assert ev3.InfraredSensor()
         assert ev3.Sensor(driver_name="pixt-lego")
 
