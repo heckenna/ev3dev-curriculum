@@ -44,7 +44,6 @@ def main():
             robot.drive_forward(turn_speed, -turn_speed)
         else:
             robot.drive_stop()
-
         time.sleep(0.25)
 
     print("Goodbye!")
