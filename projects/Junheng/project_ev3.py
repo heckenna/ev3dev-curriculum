@@ -7,6 +7,7 @@ import mqtt_remote_method_calls as com
 import tkinter
 from tkinter import ttk
 
-def test():
-    robot = robo.Snatch3r()
+def main():
 
+
+def
