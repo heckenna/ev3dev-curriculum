@@ -26,9 +26,10 @@ def main():
     rc2.on_blue_up = lambda state: handle_calibrate_button(state, robot)
     rc2.on_blue_down = lambda state: handle_calibrate_button(state, robot)
 
-    rc1.process()
-    rc2.process()
-    time.sleep(0.1)
+    while True:
+        rc1.process()
+        rc2.process()
+        time.sleep(0.1)
 
 def left_motor_forward_button(button_state, robot):
     if button_state:
