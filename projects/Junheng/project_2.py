@@ -41,6 +41,3 @@ def main():
             robot.drive_stop()
             break
         time.sleep(0.1)
-
-
-main()
