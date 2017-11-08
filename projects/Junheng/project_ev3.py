@@ -11,7 +11,6 @@ def main():
     mqtt_client.connect_to_pc()
     while True:
         robot.loop_forever()
-        if mqtt_client
 
     rc1 = ev3.RemoteControl(channel=1)
     rc2 = ev3.RemoteControl(channel=2)

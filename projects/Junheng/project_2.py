@@ -38,6 +38,7 @@ def main():
             time.sleep(0.2)
         command = input("Press 'Q' to quit: ")
         if command == "q":
+            robot.drive_stop()
             break
         time.sleep(0.1)
 
