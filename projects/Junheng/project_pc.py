@@ -55,11 +55,6 @@ def main():
     down_button['command'] = lambda: send_down(mqtt_client)
     root.bind('<z>', lambda event: send_down(mqtt_client))
 
-    c_button = ttk.Button(main_frame, text="Continue")
-    c_button.grid(row=4, column=2)
-    c_button['command'] = (lambda: continue_program(mqtt_client))
-    c_button['command'] = (lambda: continue_program(mqtt_client))
-
     e_button = ttk.Button(main_frame, text="Exit")
     e_button.grid(row=5, column=2)
     e_button['command'] = (lambda: quit_program(mqtt_client, True))
@@ -101,11 +96,6 @@ def send_right(mqtt_client, left_speed_entry, right_speed_entry):
 def send_stop(mqtt_client):
     print('stop')
     mqtt_client.send_message('drive_stop')
-
-
-def continue_program(mqtt_client):
-    print('Continue')
-    mqtt_client.send_message('main', ['break'])
 
 
 def quit_program(mqtt_client, shutdown_ev3):
