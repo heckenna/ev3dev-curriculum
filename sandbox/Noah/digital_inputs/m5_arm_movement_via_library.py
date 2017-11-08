@@ -50,7 +50,7 @@ def main():
 
     ev3.Sound.speak("Goodbye").wait()
 
-        robot.left_motor.run_to_rel_pos()
+    robot.left_motor.run_to_rel_pos()
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
 # ----------------------------------------------------------------------
