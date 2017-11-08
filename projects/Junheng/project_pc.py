@@ -105,7 +105,7 @@ def send_stop(mqtt_client):
 
 def continue_program(mqtt_client):
     print('Continue')
-    mqtt_client.send_message('main', [])
+    mqtt_client.send_message('main', ['break'])
 
 
 def quit_program(mqtt_client, shutdown_ev3):
