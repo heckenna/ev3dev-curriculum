@@ -70,5 +70,3 @@ def handle_calibrate_button(button_state, robot):
     if button_state:
         robot.arm_calibration()
 
-
-main()
