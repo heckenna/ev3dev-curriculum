@@ -9,7 +9,9 @@ def main():
     robot = robo.Snatch3r()
     mqtt_client = com.MqttClient(robot)
     mqtt_client.connect_to_pc()
-    robot.loop_forever()
+    while True:
+        robot.loop_forever()
+        if mqtt_client
 
     rc1 = ev3.RemoteControl(channel=1)
     rc2 = ev3.RemoteControl(channel=2)
@@ -30,6 +32,7 @@ def main():
         rc1.process()
         rc2.process()
         time.sleep(0.1)
+
 
 def left_motor_forward_button(button_state, robot):
     if button_state:

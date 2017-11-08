@@ -36,6 +36,9 @@ def main():
             ev3.Sound.play("/home/robot/csse120/assets/sounds/awesome_pcm.wav").wait()
             robot.drive_forward(speed, speed)
             time.sleep(0.2)
+        command = input("Press 'Q' to quit: ")
+        if command == "q":
+            break
         time.sleep(0.1)
 
 

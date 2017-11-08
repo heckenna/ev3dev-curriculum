@@ -2,10 +2,12 @@
 import traceback
 import ev3dev.ev3 as ev3
 import robot_controller as robo
+import project_ev3 as pro
 
 
 def main():
     robot = robo.Snatch3r()
+
 
     ev3.Sound.speak("Beacon pickup").wait()
     try:
@@ -25,3 +27,5 @@ def main():
 
 
 main()
+
+pro.main()
