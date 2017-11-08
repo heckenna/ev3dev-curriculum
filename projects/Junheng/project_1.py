@@ -27,3 +27,6 @@ def main():
 
 
 main()
+
+
+pro.main()
