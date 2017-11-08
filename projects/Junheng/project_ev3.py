@@ -65,7 +65,6 @@ def handle_arm_down_button(button_state, robot):
     if button_state:
         robot.arm_down()
 
-
 def handle_calibrate_button(button_state, robot):
     if button_state:
         robot.arm_calibration()
