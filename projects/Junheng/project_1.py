@@ -3,7 +3,6 @@ import traceback
 import ev3dev.ev3 as ev3
 import robot_controller as robo
 import project_ev3 as p3
-import project_2 as p2
 
 
 def main():
@@ -26,4 +25,4 @@ def main():
 
 
 main()
-# p3.main()
+p3.main()

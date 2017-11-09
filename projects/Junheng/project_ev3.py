@@ -1,5 +1,5 @@
 
-import time
+# import time
 import ev3dev.ev3 as ev3
 import robot_controller as robo
 import mqtt_remote_method_calls as com
@@ -9,6 +9,24 @@ def main():
     robot = robo.Snatch3r()
     mqtt_client = com.MqttClient(robot)
     mqtt_client.connect_to_pc()
+
+    ev3.Sound.speak("Take me back home").wait()
+    while True:
+        if robot.ir_sensor.proximity <= 2:
+            robot.drive_stop()
+            ev3.Sound.speak('Running into a object').wait()
+            break
+        if robot.color_sensor.color == ev3.ColorSensor.COLOR_BLUE:
+            robot.drive_stop()
+            robot.turn_degrees(380, 100)
+        if robot.color_sensor.color == ev3.ColorSensor.COLOR_RED:
+            robot.drive_stop()
+            robot.arm_up()
+            robot.arm_down()
+        if robot.color_sensor.color == ev3.ColorSensor.COLOR_BLACK:
+            robot.drive_stop()
+            ev3.Sound.play("/home/robot/csse120/assets/sounds/awesome_pcm.wav").wait()
+
     robot.loop_forever()
 
 #     rc1 = ev3.RemoteControl(channel=1)
