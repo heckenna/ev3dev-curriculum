@@ -26,5 +26,4 @@ def main():
 
 
 main()
-p3.main()
-p2.main()
+# p3.main()
