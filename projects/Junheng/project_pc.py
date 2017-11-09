@@ -16,8 +16,8 @@ def main():
 
     speed_label = ttk.Label(main_frame, text="Speed:")
     speed_label.grid(row=0, column=0)
-    speed_entry = ttk.Scale(main_frame, length=200, from_=100, to=800)
-    speed_entry.grid(row=0, column=1 and 2)
+    speed_entry = ttk.Scale(main_frame, length=150, from_=100, to=800)
+    speed_entry.grid(row=0, column=1, columnspan=2)
 
     forward_button = ttk.Button(main_frame, text="Forward")
     forward_button.grid(row=1, column=1)
