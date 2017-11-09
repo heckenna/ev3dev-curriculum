@@ -16,9 +16,8 @@ def main():
 
     speed_label = ttk.Label(main_frame, text="Speed:")
     speed_label.grid(row=0, column=0)
-    speed_entry = ttk.Entry(main_frame, width=8)
-    speed_entry.insert(0, "600")
-    speed_entry.grid(row=0, column=2)
+    speed_entry = ttk.Scale(main_frame, length=200, from_=100, to=800)
+    speed_entry.grid(row=0, column=1 and 2)
 
     forward_button = ttk.Button(main_frame, text="Forward")
     forward_button.grid(row=1, column=1)
@@ -46,12 +45,12 @@ def main():
     root.bind('<Down>', lambda event: send_backward(mqtt_client, speed_entry, speed_entry))
 
     up_button = ttk.Button(main_frame, text="Up")
-    up_button.grid(row=4, column=0)
+    up_button.grid(row=5, column=0)
     up_button['command'] = lambda: send_up(mqtt_client)
     root.bind('<a>', lambda event: send_up(mqtt_client))
 
     down_button = ttk.Button(main_frame, text="Down")
-    down_button.grid(row=5, column=0)
+    down_button.grid(row=5, column=1)
     down_button['command'] = lambda: send_down(mqtt_client)
     root.bind('<z>', lambda event: send_down(mqtt_client))
 
