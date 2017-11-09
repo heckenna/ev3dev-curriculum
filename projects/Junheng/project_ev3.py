@@ -29,7 +29,6 @@ def main():
         rc1.process()
         rc2.process()
         time.sleep(0.1)
-
     robot.loop_forever()
 
 
