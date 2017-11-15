@@ -23,6 +23,7 @@ def main():
         if robot.color_sensor.color == ev3.ColorSensor.COLOR_RED:
             robot.drive_stop()
             ev3.Sound.speak('you just killed me').wait()
+            mqtt_client.send_message('abc', ['you just killed me'])
             robot.arm_down()
             exit()
         if robot.color_sensor.color == ev3.ColorSensor.COLOR_YELLOW:
@@ -32,8 +33,10 @@ def main():
         while not touch_sensor.is_pressed:
             time.sleep(5)
             ev3.Sound.speak('I am home').wait()
+            mqtt_client.send_message('abc', ['I am home'])
             time.sleep(1)
             ev3.Sound.speak('Here is the bone').wait()
+            mqtt_client.send_message('abc', ['Here is the bone'])
             exit()
 
     robot.loop_forever()
