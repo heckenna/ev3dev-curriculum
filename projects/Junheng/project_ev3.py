@@ -13,13 +13,15 @@ def main():
     touch_sensor = ev3.TouchSensor()
     assert touch_sensor
 
-    ev3.Sound.speak("Take me back home").wait()
+    ev3.Sound.speak('Guide me back home').wait()
     while True:
         if robot.color_sensor.color == ev3.ColorSensor.COLOR_BLUE:
             robot.drive_stop()
             robot.turn_degrees(380, 300)
         if robot.color_sensor.color == ev3.ColorSensor.COLOR_RED:
             robot.drive_stop()
+            ev3.Sound.speak('you just killed me')
+            exit()
         if robot.color_sensor.color == ev3.ColorSensor.COLOR_YELLOW:
             robot.drive_stop()
             ev3.Sound.play("/home/robot/csse120/assets/sounds/awesome_pcm.wav")
