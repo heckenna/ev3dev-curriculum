@@ -1,5 +1,5 @@
 
-# import time
+import time
 import ev3dev.ev3 as ev3
 import robot_controller as robo
 import mqtt_remote_method_calls as com
@@ -10,18 +10,25 @@ def main():
     mqtt_client = com.MqttClient(robot)
     mqtt_client.connect_to_pc()
 
+    touch_sensor = ev3.TouchSensor()
+    assert touch_sensor
+
     ev3.Sound.speak("Take me back home").wait()
     while True:
         if robot.color_sensor.color == ev3.ColorSensor.COLOR_BLUE:
             robot.drive_stop()
-            robot.turn_degrees(380, 100)
+            robot.turn_degrees(380, 300)
         if robot.color_sensor.color == ev3.ColorSensor.COLOR_RED:
             robot.drive_stop()
-            robot.arm_up()
-            robot.arm_down()
         if robot.color_sensor.color == ev3.ColorSensor.COLOR_YELLOW:
             robot.drive_stop()
-            ev3.Sound.play("/home/robot/csse120/assets/sounds/awesome_pcm.wav").wait()
+            ev3.Sound.play("/home/robot/csse120/assets/sounds/awesome_pcm.wav")
+        while not touch_sensor.is_pressed:
+            time.sleep(5)
+            ev3.Sound.speak('I am home')
+            time.sleep(1)
+            ev3.Sound.speak('Here is the bone')
+            exit()
 
     robot.loop_forever()
 
