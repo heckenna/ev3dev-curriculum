@@ -11,7 +11,7 @@ def main():
         found_beacon = robot.seek_beacon()
         if found_beacon:
             robot.arm_up()
-            print('Beacon picked up')
+            print('Your dog got the bone')
             ev3.Sound.speak('I got the bone')
         command = input('Press "N" to continue: ')
         if command == "n":
