@@ -18,19 +18,21 @@ def main():
         if robot.color_sensor.color == ev3.ColorSensor.COLOR_BLUE:
             robot.drive_stop()
             robot.turn_degrees(380, 300)
+            time.sleep(3)
         if robot.color_sensor.color == ev3.ColorSensor.COLOR_RED:
             robot.drive_stop()
-            ev3.Sound.speak('you just killed me')
+            ev3.Sound.speak('you just killed me').wait()
             robot.arm_down()
             exit()
         if robot.color_sensor.color == ev3.ColorSensor.COLOR_YELLOW:
             robot.drive_stop()
-            ev3.Sound.play("/home/robot/csse120/assets/sounds/awesome_pcm.wav")
+            ev3.Sound.play("/home/robot/csse120/assets/sounds/awesome_pcm.wav").wait()
+            time.sleep(3)
         while not touch_sensor.is_pressed:
             time.sleep(5)
-            ev3.Sound.speak('I am home')
+            ev3.Sound.speak('I am home').wait()
             time.sleep(1)
-            ev3.Sound.speak('Here is the bone')
+            ev3.Sound.speak('Here is the bone').wait()
             exit()
 
     robot.loop_forever()
