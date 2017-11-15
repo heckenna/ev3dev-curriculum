@@ -10,7 +10,7 @@ class MyDelegate(object):
 
 
 def main():
-    my_delegate = MyDelegate
+    my_delegate = MyDelegate()
     mqtt_client = com.MqttClient(my_delegate)
     mqtt_client.connect_to_ev3()
 
