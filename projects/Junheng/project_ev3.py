@@ -14,9 +14,8 @@ def main():
     assert touch_sensor
 
     ev3.Sound.speak('Guide me back home').wait()
-    msg = 'Guide me back home'
-    mqtt_client.send_message('abc', msg)
-
+    mqtt_client.send_message('abc', ['Guide me back home'])
+    
     while True:
         if robot.color_sensor.color == ev3.ColorSensor.COLOR_BLUE:
             robot.drive_stop()
