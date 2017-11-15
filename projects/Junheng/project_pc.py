@@ -4,8 +4,14 @@ from tkinter import ttk
 import mqtt_remote_method_calls as com
 
 
+class MyDelegate(object):
+    def msg(self, message_from_ev3):
+        print(message_from_ev3)
+
+
 def main():
-    mqtt_client = com.MqttClient()
+    my_delegate = MyDelegate
+    mqtt_client = com.MqttClient(my_delegate)
     mqtt_client.connect_to_ev3()
 
     root = tkinter.Tk()
