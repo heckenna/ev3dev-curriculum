@@ -21,6 +21,7 @@ def main():
         if robot.color_sensor.color == ev3.ColorSensor.COLOR_RED:
             robot.drive_stop()
             ev3.Sound.speak('you just killed me')
+            robot.arm_down()
             exit()
         if robot.color_sensor.color == ev3.ColorSensor.COLOR_YELLOW:
             robot.drive_stop()
