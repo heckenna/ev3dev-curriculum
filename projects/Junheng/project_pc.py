@@ -5,7 +5,7 @@ import mqtt_remote_method_calls as com
 
 
 class MyDelegate(object):
-    def msg(self, message_from_ev3):
+    def abc(self, message_from_ev3):
         print(message_from_ev3)
 
 
