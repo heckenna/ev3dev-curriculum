@@ -9,7 +9,6 @@ def main():
     robot = robo.Snatch3r()
     mqtt_client = com.MqttClient(robot)
     mqtt_client.connect_to_pc()
-    robot.loop_forever()
 
     ev3.Sound.speak("Take me back home").wait()
     while True:
@@ -20,9 +19,11 @@ def main():
             robot.drive_stop()
             robot.arm_up()
             robot.arm_down()
-        if robot.color_sensor.color == ev3.ColorSensor.COLOR_BLACK:
+        if robot.color_sensor.color == ev3.ColorSensor.COLOR_YELLOW:
             robot.drive_stop()
             ev3.Sound.play("/home/robot/csse120/assets/sounds/awesome_pcm.wav").wait()
+
+    robot.loop_forever()
 
 #     rc1 = ev3.RemoteControl(channel=1)
 #     rc2 = ev3.RemoteControl(channel=2)
